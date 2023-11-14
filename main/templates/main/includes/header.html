@@ -1,0 +1,33 @@
+{% load static %}
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between pb-3 mb-4 border-bottom">
+    <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            <img src="{% static 'powerplate-logo.svg' %}" alt="" width="149" height="39">
+        </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link link-dark px-2">Тест</a></li>
+        <li><a href="#" class="nav-link link-dark px-2">Тест</a></li>
+        <li><a href="#" class="nav-link link-dark px-2">Тест</a></li>
+        <li><a href="#" class="nav-link link-dark px-2">Тест</a></li>
+        <li><a href="{% url 'clients:clients_list' %}" class="nav-link link-dark px-2">Клиенты</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+        <a href="{% url 'users:logout' %}" type="button" class="btn btn-outline-danger me-2">Выйти</a>
+    </div>
+</header>
+{#    <header>#}
+{#        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">#}
+{#            <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">#}
+{#                <img src="{% static 'powerplate-logo.svg' %}" alt="" width="149" height="39">#}
+{#            </a>#}
+{#            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto ">#}
+{#                <a class="me-3 py-2 link-dark text-decoration-none" href="#">Features</a>#}
+{#                <a class="me-3 py-2 link-dark text-decoration-none" href="#">Enterprise</a>#}
+{#                <a class="me-3 py-2 link-dark text-decoration-none" href="#">Support</a>#}
+{#                <a class="py-2 link-dark text-decoration-none" href="#">Pricing</a>#}
+{#            </nav>#}
+{#        </div>#}
+{#    </header>#}

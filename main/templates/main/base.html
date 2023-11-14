@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+{% include 'main/includes/head.html' %}
+<body>
+<div class="container py-3">
+    {% include 'main/includes/header.html' %}
+    {% block content %}
+    {% endblock %}
+    {% include 'main/includes/footer.html' %}
+</div>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
