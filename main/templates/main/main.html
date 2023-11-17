@@ -1,25 +1,23 @@
 {% load static %}
 {% load django_bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% bootstrap_messages %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-    .btn-group.special {
-        display: flex;
-    }
 
-    .special .btn {
-        flex: 1
-    }
-</style>
-
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% bootstrap_javascript %}
+</head>
+<body>
 <div class="container">
     <header class="d-flex flex-wrap align-items-stretch  justify-content-between">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
 
-                    <img src="{% static 'logo.png' %}" alt="" width="150" height="150">
+                <img src="{% static 'logo.png' %}" alt="" width="150" height="150">
 
             </a>
         </div>
@@ -32,15 +30,13 @@
         {#            <li><a href="#" class="nav-link px-2">About</a></li>#}
         {#        </ul>#}
 
-        <div class="col-md-3 text-end jus ">
+        <div class="col-md-3 text-end pt-1">
+{#            <div class="text">#}
+{#                <p class="fs-6">Контактный телефон: </p>#}
+{#            </div>#}
             <div class="text">
-                <p class="fs-6">Контактный телефон: </p>
+                Пн-Вс: 9:00 – 19:00<br><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a>
             </div>
-            <div class="text">
-                Пн-Вс: 9:00 – 20:00<br><a href="tel:+79858986075">+7 (985) 898-60-75</a>
-            </div>
-            <button type="button" class="btn btn-outline-primary me-2">Login</button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
         </div>
     </header>
 </div>
@@ -52,11 +48,12 @@
             {#            </a>#}
 
             <ul class="nav col-12  mb-2 justify-content-center mb-md-0  btn-group ">
-                <a href="#" class=" px-2 btn btn-dark">Home</a>
-                <a href="#" class=" px-2 btn btn-dark">Features</a>
-                <a href="#" class=" px-2 btn btn-dark">Pricing</a>
-                <a href="#" class=" px-2 btn btn-dark">FAQs</a>
-                <a href="#" class=" px-2 btn btn-dark">About</a>
+                <a href="#" class=" px-2 btn btn-dark text-secondary">Запчасти <span class="badge bg-danger rounded-pill">Скоро</span></a>
+                <a href="#" class=" px-2 btn btn-dark">Услуги</a>
+                <a href="#" class=" px-2 btn btn-dark">О нас</a>
+                <a href="#" class=" px-2 btn btn-dark">Отзывы</a>
+                <a href="#contact" class=" px-2 btn btn-dark">Контакты</a>
+
             </ul>
 
 
@@ -71,225 +68,261 @@
         </div>
     </div>
 </header>
+<main class="bd-main order-1">
 
-{# Услуги #}
-<div class="container">
-    <div class="accordion" id="accordionExample">
-        {% for category in categories %}
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse{{ category.pk }}"
-                            aria-expanded="false" aria-controls="collapse{{ category.pk }}">
-                        {{ category.name }}
-                    </button>
-                </h2>
-                <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
-                     data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                        collapse
-                        plugin adds the appropriate classes that we use to style each element. These classes control the
-                        overall
-                        appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                        with
-                        custom CSS or overriding our default variables. It's also worth noting that just about any HTML
-                        can
-                        go
-                        within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                </div>
-                <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
-                     data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                        collapse
-                        plugin adds the appropriate classes that we use to style each element. These classes control the
-                        overall
-                        appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                        with
-                        custom CSS or overriding our default variables. It's also worth noting that just about any HTML
-                        can
-                        go
-                        within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+
+    {# Услуги #}
+    <div class="pt-5 mt-5 d-flex justify-content-center">
+        <h1>Наши услуги</h1>
     </div>
-</div>
+    <div class="container mt-3 my-md-4">
+        <div class="accordion" id="accordionExample">
+            {% for category in categories %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ category.pk }}"
+                                aria-expanded="false" aria-controls="collapse{{ category.pk }}">
+                            {{ category.name }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
+                         data-bs-parent="#accordionExample">
 
-{# О нас #}
-
-<div class="pb-2 pt-5 mt-5 d-flex justify-content-center"
-     style="background-color:#ffffff; " data-record-type="255"
-     data-bg-color="#f0f0f0" data-animationappear="off">
-    <div class="t225__title t-title t-title_md" field="title"><h2>О нас</h2>
-    </div>
-    <style> #rec336592186 .t225__uptitle {
-        text-transform: uppercase;
-    }
-
-    @media screen and (min-width: 900px) {
-        #rec336592186 .t225__title {
-            font-size: 42px;
-        }
-    }</style>
-</div>
-
-<div class="text-left">
-    <div class="row align-items-center">
-        <div class="col-md-6 flex-fill">
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    {% for single_image in image %}
-                        {% if forloop.first %}
-                            <div class="carousel-item active">
-                                <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
+                        <div class="border-bottom">
+                            <div class="row g-0 m-3">
+                                <div class="col-md-4">
+                                    <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a
+                                            natural
+                                            lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                            ago</small></p>
+                                    </div>
+                                </div>
                             </div>
-                        {% else %}
-                            <div class="carousel-item">
-                                <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
+                        </div>
+
+                    </div>
+                    <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
+                         data-bs-parent="#accordionExample">
+
+
+                        <div class="row g-0 m-3">
+                            <div class="col-md-4">
+                                <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">
                             </div>
-                        {% endif %}
-                    {% endfor %}
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                        ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-        <div class="col-md-6 p-2 flex-fill">
-            <div class="p-5">
-                Мы делаем полный спектр ремонтных работ, от электронной диагностики автомобиля до замены любой его
-                запчасти.
-                Вы всегда получаете гарантированно качественную работу от наших профессионалов, и всегда можете быть
-                уверенными в надежной работе своего автомобиля. Вы получите полную гарантию на все виды работ.<br>
-                В комплексных работах участвуют несколько специалистов, каждый из которых отвечает за свою часть работы.<br>
-                Специалисты узкого профиля повышают работоспособность сервиса и качество выполнения работ. Обслуживание
-                автомобиля организовано согласно требованиям заводов-изготовителей. Оборудование техцентра соответствует
-                всем современным требованиям.
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="container">
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            {% for single_image in image %}
-                {% if forloop.first %}
-                    <div class="carousel-item active">
-                        <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
-                    </div>
-                {% else %}
-                    <div class="carousel-item">
-                        <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
-                    </div>
-                {% endif %}
             {% endfor %}
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-</div>
 
+    {# О нас #}
+    <div style="background-color:#f0f0f0;">
+    <div class="pt-5"></div>
+        <div class="pb-2 pt-5 d-flex justify-content-center">
+            <h1>О нас</h1>
+        </div>
 
-{#Отзывы#}
-
-<div class="pb-2 pt-5 mt-5 d-flex justify-content-center"
-     style="background-color:#f0f0f0; " data-record-type="255"
-     data-bg-color="#f0f0f0" data-animationappear="off">
-    <div class="t225__title t-title t-title_md" field="title"><h2>Отзывы клиентов о сервисе</h2>
+        <div class="text-left">
+            <div class="row align-items-center">
+                <div class="col-md-6 flex-fill">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for single_image in image %}
+                                {% if forloop.first %}
+                                    <div class="carousel-item active">
+                                        <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
+                                    </div>
+                                {% else %}
+                                    <div class="carousel-item">
+                                        <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 p-2 flex-fill">
+                    <div class="p-5">
+                        Мы делаем полный спектр ремонтных работ, от электронной диагностики автомобиля до замены любой
+                        его
+                        запчасти.
+                        Вы всегда получаете гарантированно качественную работу от наших профессионалов, и всегда можете
+                        быть
+                        уверенными в надежной работе своего автомобиля. Вы получите полную гарантию на все виды
+                        работ.<br>
+                        В комплексных работах участвуют несколько специалистов, каждый из которых отвечает за свою часть
+                        работы.<br>
+                        Специалисты узкого профиля повышают работоспособность сервиса и качество выполнения работ.
+                        Обслуживание
+                        автомобиля организовано согласно требованиям заводов-изготовителей. Оборудование техцентра
+                        соответствует
+                        всем современным требованиям.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <style> #rec336592186 .t225__uptitle {
-        text-transform: uppercase;
-    }
 
-    @media screen and (min-width: 900px) {
-        #rec336592186 .t225__title {
-            font-size: 42px;
-        }
-    }</style>
-</div>
 
-<div class="py-2 pb-5 d-flex justify-content-center" style="background-color:#f0f0f0; " data-record-type="255"
-     data-bg-color="#f0f0f0" data-animationappear="off">
-    <div style="width:560px;height:600px;overflow:hidden;position:relative;">
-        <iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
-                src="https://yandex.ru/maps-reviews-widget/92974302436?comments"></iframe>
+    {#    <div class="container">#}
+    {#        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">#}
+    {#            <div class="carousel-inner">#}
+    {#                {% for single_image in image %}#}
+    {#                    {% if forloop.first %}#}
+    {#                        <div class="carousel-item active">#}
+    {#                            <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">#}
+    {#                        </div>#}
+    {#                    {% else %}#}
+    {#                        <div class="carousel-item">#}
+    {#                            <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">#}
+    {#                        </div>#}
+    {#                    {% endif %}#}
+    {#                {% endfor %}#}
+    {#            </div>#}
+    {#            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"#}
+    {#                    data-bs-slide="prev">#}
+    {#                <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
+    {#                <span class="visually-hidden">Previous</span>#}
+    {#            </button>#}
+    {#            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"#}
+    {#                    data-bs-slide="next">#}
+    {#                <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
+    {#                <span class="visually-hidden">Next</span>#}
+    {#            </button>#}
+    {#        </div>#}
+    {#    </div>#}
+
+
+    {#Отзывы#}
+    <div>
+        <div class="container">
+            <div class=" pb-2 pt-5 mt-5 d-flex justify-content-center">
+                <h2>Отзывы клиентов о сервисе</h2>
+            </div>
+
+            <div class="py-2 pb-5 d-flex justify-content-center"
+                 data-record-type="255"
+                 data-bg-color="#f0f0f0" data-animationappear="off">
+                <div style="width:560px;height:600px;overflow:hidden;position:relative;">
+                    <iframe loading="lazy"
+                            style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
+                            src="https://yandex.ru/maps-reviews-widget/92974302436?comments"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
-{#Карта#}
-<ul class="nav nav-tabs" style="background-color:#f0f0f0;>
-    <li class=" nav-item">
-<a class="nav-link active" aria-current="page" href="#">Яндекс карта</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link show-more" href="#">2ГИС карта</a>
-</li>
-</ul>
-<script>
-    $(".show-more").click(function () {
-        $(document).find(".more_service").slideToggle();
-        $(".show-more").css("display", "none");
-    })
-</script>
-{#Yandex#}
-<div class="more_service" style="position:relative;overflow:hidden;"><a
-        href="https://yandex.ru/maps/org/alfa_servis/92974302436/?utm_medium=mapframe&utm_source=maps"
-        style="color:#eee;font-size:12px;position:absolute;top:0px;">Альфа Сервис</a><a
-        href="https://yandex.ru/maps/239/sochi/category/car_service_auto_repair/184105246/?utm_medium=mapframe&utm_source=maps"
-        style="color:#eee;font-size:12px;position:absolute;top:14px;">Автосервис, автотехцентр в Сочи</a>
-    <iframe src="https://yandex.ru/map-widget/v1/?ll=39.938210%2C43.429562&mode=search&oid=92974302436&ol=biz&z=16.71"
-            width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
-</div>
-{#2gis#}
-<a class="dg-widget-link"
-   href="http://2gis.ru/sochi/firm/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
-    на карте Сочи</a>
-<div class="dg-widget-link"><a
-        href="http://2gis.ru/sochi/firm/70000001080557060/photos/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии
-    компании</a></div>
-<div class="dg-widget-link"><a
-        href="http://2gis.ru/sochi/center/39.936818,43.430476/zoom/17/routeTab/rsType/bus/to/39.936818,43.430476╎Альфа Сервис?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти
-    проезд до Альфа Сервис</a></div>
-<script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
-<script charset="utf-8">new DGWidgetLoader({
-    "width": '100%',
-    "height": 600,
-    "borderColor": "#a3a3a3",
-    "pos": {"lat": 43.430678670507625, "lon": 39.93751287460328, "zoom": 17},
-    "opt": {"city": "sochi"},
-    "org": [{"id": "70000001080557060"}]
-});</script>
-<noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в
-    настройках вашего браузера.
-</noscript>
+    {#Контакты#}
+    <div id="contact" class="pt-5" style="background-color:#f0f0f0;">
+        <ul class="list-inline text-center m-0 pt-5">
+            <li class="list-inline-item text-center text-sm-end"><h1>Наш телефон: </h1></li>
+            <li class="list-inline-item text-center text-sm-start">
+                <h1><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a></h1></li>
+        </ul>
+    </div>
+    <div style="background-color:#f0f0f0;">
 
+    </div>
+    {#Карта#}
+    <ul class="nav nav-tabs" style="background-color:#f0f0f0;">
+        <li class=" nav-item">
+            <button id="yandex-show" class="nav-link text-dark active">Яндекс карта</button>
+        </li>
+        <li class="nav-item">
+            <button id="2gis-show" class="nav-link text-dark">2ГИС карта</button>
+        </li>
+    </ul>
+
+
+    {#Yandex#}
+    <div id="yandex" style="background-color:#f0f0f0;position:relative;overflow:hidden;height: 500px;">
+        <iframe loading="lazy"
+                src="https://yandex.ru/map-widget/v1/?ll=39.938210%2C43.429562&mode=search&oid=92974302436&ol=biz&z=16.71"
+                width="100%" height="500" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+    </div>
+
+    {#2gis#}
+    <div id="2gis" style="background-color:#f0f0f0;display:none;height:500px;">
+        <a class="dg-widget-link"
+           href="http://2gis.ru/sochi/firm/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
+            на карте Сочи</a>
+        <div class="dg-widget-link"><a
+                href="http://2gis.ru/sochi/firm/70000001080557060/photos/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии
+            компании</a></div>
+        <div class="dg-widget-link"><a
+                href="http://2gis.ru/sochi/center/39.936818,43.430476/zoom/17/routeTab/rsType/bus/to/39.936818,43.430476╎Альфа Сервис?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти
+            проезд до Альфа Сервис</a></div>
+        <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+        <script charset="utf-8">new DGWidgetLoader({
+            "width": '100%',
+            "height": 500,
+            "borderColor": "#a3a3a3",
+            "pos": {"lat": 43.430678670507625, "lon": 39.93751287460328, "zoom": 17},
+            "opt": {"city": "sochi"},
+            "org": [{"id": "70000001080557060"}]
+        });</script>
+        <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в
+            настройках вашего браузера.
+        </noscript>
+    </div>
+</main>
 
 {# нижначасть футер#}
-<div class="pb-2 pt-5 d-flex justify-content-center"
-     style="background-color:#000000; " data-record-type="56"
-     data-bg-color="#000000" data-animationappear="off">
-    <div class=" " style="color: rgb(157, 157, 157);" data-customstyle="yes">
-        <span style="color: rgb(255, 0, 0);">© 2023 Альфа</span><span style="color: rgb(255, 255, 255);">Сервис</span>
+<footer>
+    <div class="pb-2 pt-5 d-flex justify-content-center"
+         style="background-color:#000000; " data-record-type="56"
+         data-bg-color="#000000" data-animationappear="off">
+        <div class=" " style="color: rgb(157, 157, 157);" data-customstyle="yes">
+            <span style="color: rgb(255, 0, 0);">© 2023 Альфа</span><span
+                style="color: rgb(255, 255, 255);">Сервис</span>
+        </div>
     </div>
-</div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#yandex-show").click(function () {
+            $("#yandex").show();
+            $("#2gis").hide();
+            $("#yandex-show").addClass("active");
+            $("#2gis-show").removeClass("active");
+        });
+        $("#2gis-show").click(function () {
+            $("#yandex").hide();
+            $("#2gis").show();
+            $("#yandex-show").removeClass("active");
+            $("#2gis-show").addClass("active");
+        });
+    });
+</script>
+</body>
+</html>
