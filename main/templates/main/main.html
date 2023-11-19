@@ -31,9 +31,9 @@
         {#        </ul>#}
 
         <div class="col-md-3 text-end pt-1">
-{#            <div class="text">#}
-{#                <p class="fs-6">Контактный телефон: </p>#}
-{#            </div>#}
+            {#            <div class="text">#}
+            {#                <p class="fs-6">Контактный телефон: </p>#}
+            {#            </div>#}
             <div class="text">
                 Пн-Вс: 9:00 – 19:00<br><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a>
             </div>
@@ -48,8 +48,12 @@
             {#            </a>#}
 
             <ul class="nav col-12  mb-2 justify-content-center mb-md-0  btn-group ">
-                <a href="#" class=" px-2 btn btn-dark text-secondary">Запчасти <span class="badge bg-danger rounded-pill">Скоро</span></a>
-                <a href="#" class=" px-2 btn btn-dark">Услуги</a>
+                <a href="#" class=" px-2 btn btn-dark text-secondary">Запчасти <span
+                        class="badge bg-danger rounded-pill">Скоро</span></a>
+{#                <a href="#" class=" px-2 btn btn-dark text-secondary position-relative">Запчасти#}
+{#                <span class="position-absolute top-0 end-0  badge rounded-pill bg-danger op">Скоро</span>#}
+{#                </a>#}
+                <a href="#" class=" px-2 btn btn-dark ">Услуги</a>
                 <a href="#" class=" px-2 btn btn-dark">О нас</a>
                 <a href="#" class=" px-2 btn btn-dark">Отзывы</a>
                 <a href="#contact" class=" px-2 btn btn-dark">Контакты</a>
@@ -136,14 +140,14 @@
 
     {# О нас #}
     <div style="background-color:#f0f0f0;">
-    <div class="pt-5"></div>
+        <div class="pt-5"></div>
         <div class="pb-2 pt-5 d-flex justify-content-center">
             <h1>О нас</h1>
         </div>
 
         <div class="text-left">
             <div class="row align-items-center">
-                <div class="col-md-6 flex-fill">
+                <div class="col-md-5 flex-fill">
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             {% for single_image in image %}
@@ -170,8 +174,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-md-6 p-2 flex-fill">
-                    <div class="p-5">
+                <div class="col-md-7 p-2 flex-fill">
+                    <div class="">
                         Мы делаем полный спектр ремонтных работ, от электронной диагностики автомобиля до замены любой
                         его
                         запчасти.
@@ -242,18 +246,38 @@
     </div>
 
     {#Контакты#}
-    <div id="contact" class="pt-5" style="background-color:#f0f0f0;">
+<div style="background-color:#f0f0f0;">
+    <div id="contact" class="pt-5">
         <ul class="list-inline text-center m-0 pt-5">
             <li class="list-inline-item text-center text-sm-end"><h1>Наш телефон: </h1></li>
             <li class="list-inline-item text-center text-sm-start">
                 <h1><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a></h1></li>
         </ul>
     </div>
-    <div style="background-color:#f0f0f0;">
-
+    <div class="d-flex justify-content-center">
+        <div class="d-inline-flex p-2">
+            <a class="nav-link" href="tel:+79933135777">
+                <img src="{% static 'phone_logo_icon.svg' %}" alt="Позвонить" style="height:3rem;width:3rem;">
+            </a>
+        </div>
+        <div class="d-inline-flex p-2">
+            <a class="nav-link" href="https://wa.me/79933135777?text=Здраствуйте!">
+                <img src="{% static 'whatsapp_logo_icon.svg' %}" alt="Написать" style="height:3rem;width:3rem;">
+            </a>
+        </div>
+        <div class="d-inline-flex p-2">
+            <a class="nav-link" href="https://t.me/Alfa_34_4_Service">
+                <img src="{% static 'telegram_logo_icon.svg' %}" alt="Написать" style="height:3rem;width:3rem;">
+            </a>
+        </div>
     </div>
+<div class="p-5">
+<div class="container" style="background-color:#ff0000;height:2px;width:40%;opacity:1;"></div>
+</div>
+<div class="text-center pb-5" style="">Сочи, жилой район Адлер, ул.Авиационная 34/4<br>Пн-Вс: 9:00–19:00</div>
+
     {#Карта#}
-    <ul class="nav nav-tabs" style="background-color:#f0f0f0;">
+    <ul class="nav nav-tabs">
         <li class=" nav-item">
             <button id="yandex-show" class="nav-link text-dark active">Яндекс карта</button>
         </li>
@@ -264,14 +288,14 @@
 
 
     {#Yandex#}
-    <div id="yandex" style="background-color:#f0f0f0;position:relative;overflow:hidden;height: 500px;">
+    <div id="yandex" style="position:relative;overflow:hidden;height: 500px;">
         <iframe loading="lazy"
                 src="https://yandex.ru/map-widget/v1/?ll=39.938210%2C43.429562&mode=search&oid=92974302436&ol=biz&z=16.71"
                 width="100%" height="500" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
     </div>
 
     {#2gis#}
-    <div id="2gis" style="background-color:#f0f0f0;display:none;height:500px;">
+    <div id="2gis" style="display:none;height:500px;">
         <a class="dg-widget-link"
            href="http://2gis.ru/sochi/firm/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
             на карте Сочи</a>
@@ -293,6 +317,7 @@
         <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в
             настройках вашего браузера.
         </noscript>
+    </div>
     </div>
 </main>
 
