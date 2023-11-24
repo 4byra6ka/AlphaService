@@ -12,88 +12,195 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-<div class="container">
-    <header class="d-flex flex-wrap align-items-stretch  justify-content-between">
-        <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
 
-                <img src="{% static 'logo.png' %}" alt="" width="150" height="150">
+<header class="text-bg-dark">
+    {#Menu desktop <sm#}
+    <nav class="d-sm-none navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: rgb(255, 0, 0);" href="#">Альфа<span
+                    style="color: rgb(255, 255, 255);">Сервис</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar"
+                    aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                 aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header position-relative justify-content-center p-0 m-3">
+                    <img class="" src="{% static 'logo-red-white.svg' %}" alt="" width="128" height="116.8">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0"
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <span class="nav-link">Запчасти <span
+                                    class="badge bg-danger rounded-pill">Скоро</span></span>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link text-bg-dark">Услуги</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about_us" class="nav-link text-bg-dark">О нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#reviews" class="nav-link text-bg-dark">Отзывы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link text-bg-dark">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="text">
+                        Пн-Вс: 9:00 – 19:00<br><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="d-inline-flex p-3">
+                            <a class="nav-link" href="tel:+79933135777">
+                                <img src="{% static 'phone_logo_icon.svg' %}" alt="Позвонить"
+                                     style="height:3rem;width:3rem;">
+                            </a>
+                        </div>
+                        <div class="d-inline-flex p-3">
+                            <a class="nav-link" href="https://wa.me/79933135777?text=Здраствуйте!">
+                                <img src="{% static 'whatsapp_logo_icon.svg' %}" alt="Написать"
+                                     style="height:3rem;width:3rem;">
+                            </a>
+                        </div>
+                        <div class="d-inline-flex p-3">
+                            <a class="nav-link" href="https://t.me/Alfa_34_4_Service">
+                                <img src="{% static 'telegram_logo_icon.svg' %}" alt="Написать"
+                                     style="height:3rem;width:3rem;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-center text-danger pb-5" style="">Сочи, жилой район Адлер, ул.Авиационная 34/4
+                    </div>
+                </div>
+            </div>
+    </nav>
 
-            </a>
-        </div>
 
-        {#        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">#}
-        {#            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>#}
-        {#            <li><a href="#" class="nav-link px-2">Features</a></li>#}
-        {#            <li><a href="#" class="nav-link px-2">Pricing</a></li>#}
-        {#            <li><a href="#" class="nav-link px-2">FAQs</a></li>#}
-        {#            <li><a href="#" class="nav-link px-2">About</a></li>#}
-        {#        </ul>#}
-
-        <div class="col-md-3 text-end pt-1">
-            {#            <div class="text">#}
-            {#                <p class="fs-6">Контактный телефон: </p>#}
-            {#            </div>#}
-            <div class="text">
-                Пн-Вс: 9:00 – 19:00<br><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a>
+    <div class="d-none d-sm-block container">
+        <div class="d-flex flex-wrap align-items-stretch  justify-content-between">
+            <div class="col-sm-2 mb-2 mb-md-0">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none pt-1">
+                    <img src="{% static 'logo-red-white.svg' %}" alt="" width="128" height="116.8">
+                </a>
+            </div>
+            <div class="col-sm-10 text-end pt-1">
+                <div class="text">
+                    Пн-Вс: 9:00 – 19:00<br><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="d-inline-flex p-2">
+                        <a class="nav-link" href="tel:+79933135777">
+                            <img src="{% static 'phone_logo_icon.svg' %}" alt="Позвонить"
+                                 style="height:2rem;width:2rem;">
+                        </a>
+                    </div>
+                    <div class="d-inline-flex p-2">
+                        <a class="nav-link" href="https://wa.me/79933135777?text=Здраствуйте!">
+                            <img src="{% static 'whatsapp_logo_icon.svg' %}" alt="Написать"
+                                 style="height:2rem;width:2rem;">
+                        </a>
+                    </div>
+                    <div class="d-inline-flex p-2">
+                        <a class="nav-link" href="https://t.me/Alfa_34_4_Service">
+                            <img src="{% static 'telegram_logo_icon.svg' %}" alt="Написать"
+                                 style="height:2rem;width:2rem;">
+                        </a>
+                    </div>
+                </div>
+                <div class="text-end text-danger" style="">Сочи, жилой район Адлер, ул.Авиационная 34/4</div>
             </div>
         </div>
-    </header>
-</div>
-
-<header class="p-3 text-bg-dark">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            {#            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">#}
-            {#            </a>#}
-
-            <ul class="nav col-12  mb-2 justify-content-center mb-md-0  btn-group ">
-                <a href="#" class=" px-2 btn btn-dark text-secondary">Запчасти <span
-                        class="badge bg-danger rounded-pill">Скоро</span></a>
-{#                <a href="#" class=" px-2 btn btn-dark text-secondary position-relative">Запчасти#}
-{#                <span class="position-absolute top-0 end-0  badge rounded-pill bg-danger op">Скоро</span>#}
-{#                </a>#}
-                <a href="#" class=" px-2 btn btn-dark ">Услуги</a>
-                <a href="#" class=" px-2 btn btn-dark">О нас</a>
-                <a href="#" class=" px-2 btn btn-dark">Отзывы</a>
-                <a href="#contact" class=" px-2 btn btn-dark">Контакты</a>
-
-            </ul>
-
-
-            {#        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">#}
-            {#          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">#}
-            {#        </form>#}
-            {##}
-            {#        <div class="text-end">#}
-            {#          <button type="button" class="btn btn-outline-light me-2">Login</button>#}
-            {#          <button type="button" class="btn btn-warning">Sign-up</button>#}
-            {#        </div>#}
+    </div>
+    {#Menu desktop >sm#}
+    <div class="d-none d-sm-block p-3">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12  mb-2 justify-content-center mb-md-0  btn-group ">
+                    <a class=" px-2 btn btn-dark text-secondary">Запчасти <span
+                            class="badge bg-danger rounded-pill">Скоро</span></a>
+                    <a href="#services" class=" px-2 btn btn-dark ">Услуги</a>
+                    <a href="#about_us" class=" px-2 btn btn-dark">О нас</a>
+                    <a href="#reviews" class=" px-2 btn btn-dark">Отзывы</a>
+                    <a href="#contact" class=" px-2 btn btn-dark">Контакты</a>
+                </ul>
+            </div>
         </div>
     </div>
 </header>
 <main class="bd-main order-1">
 
-
     {# Услуги #}
-    <div class="pt-5 mt-5 d-flex justify-content-center">
-        <h1>Наши услуги</h1>
-    </div>
-    <div class="container mt-3 my-md-4">
-        <div class="accordion" id="accordionExample">
-            {% for category in categories %}
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse{{ category.pk }}"
-                                aria-expanded="false" aria-controls="collapse{{ category.pk }}">
-                            {{ category.name }}
-                        </button>
-                    </h2>
-                    <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
-                         data-bs-parent="#accordionExample">
+    <div id="services" class="container pt-5">
+        <div class="pt-5 d-flex justify-content-center">
+            <h1>Наши услуги</h1>
+        </div>
+        <div class="">Наш автосервис оснащен
+            современным оборудованием для диагностики и ремонта автомобилей, если вы не нашли услугу из нашего перечня,
+            напишите в
+            <a href="https://wa.me/79858986075?text=Здраствуйте!" style="color: rgb(67, 216, 84);">WhathsApp</a>,
+            <a href="https://t.me/Alfa_34_4_Service" style="color: rgb(38, 157, 216);">Telegram</a>
+            или
+            <a href="tel:+79858986075" style="color: rgb(255, 0, 0);">позвоните</a>,
+            мы обязательно вас проконсультируем
+        </div>
+        <div class="my-3 my-md-4">
+            <div class="accordion" id="accordionExample">
+                {% for category in categories %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse{{ category.pk }}"
+                                    aria-expanded="false" aria-controls="collapse{{ category.pk }}">
+                                {{ category.name }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
+                             data-bs-parent="#accordionExample">
 
-                        <div class="border-bottom">
+                            <div class="border-bottom">
+                                <div class="row g-0 m-3">
+                                    <div class="col-md-4">
+                                        <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a
+                                                natural
+                                                lead-in to additional content. This content is a little bit longer.</p>
+                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                                ago</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3" data-bs-parent="#accordionExample">
+                            <h4 class="d-md-none">Установка мультимедиа на авто</h4>
+                            <img src="{% static 'multimedia.jpg' %}" class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3" alt="...">
+                            <h4 class="d-none d-md-block">Установка мультимедиа на авто</h4>
+
+
+                            <p>
+                                Установка мультимедиа под ваш автомобиль, подключение дополнительных опции: управление с руля, технические данные автомобиля, датчики колёс, подключение штатного ГЛОНАСС, камер заднего и переднего вида, дополнительный усилитель и активный сабвуфер, так же есть возможность подключить и установить круговой обзор. Качественно установим и проведем все необходимые работы
+                            </p>
+                            <h4>Цена: 5000руб.</h4>
+
+                        </div>
+
+                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
+                             data-bs-parent="#accordionExample">
+
+
                             <div class="row g-0 m-3">
                                 <div class="col-md-4">
                                     <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">
@@ -110,54 +217,34 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
-                         data-bs-parent="#accordionExample">
-
-
-                        <div class="row g-0 m-3">
-                            <div class="col-md-4">
-                                <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                        ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="pb-5 text-center" style="color:#ff0000;">У нас также можно заказать все запчасти на ваш автомобиль
         </div>
     </div>
 
     {# О нас #}
-    <div style="background-color:#f0f0f0;">
+    <div id="about_us" style="background-color:#f0f0f0;">
         <div class="pt-5"></div>
-        <div class="pb-2 pt-5 d-flex justify-content-center">
+        <div class="pt-5 d-flex justify-content-center">
             <h1>О нас</h1>
         </div>
 
-        <div class="text-left">
-            <div class="row align-items-center">
-                <div class="col-md-5 flex-fill">
+        <div class="container text-left">
+            <div class="d-flex align-items-stretch row align-items-center pb-5">
+                <div class="col-lg-5 flex-fill py-3">
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             {% for single_image in image %}
                                 {% if forloop.first %}
                                     <div class="carousel-item active">
-                                        <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
+                                        <img src="{{ single_image.image.url }}" class="rounded d-block w-100" alt="...">
                                     </div>
                                 {% else %}
                                     <div class="carousel-item">
-                                        <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">
+                                        <img src="{{ single_image.image.url }}" class="rounded d-block w-100" alt="...">
                                     </div>
                                 {% endif %}
                             {% endfor %}
@@ -174,150 +261,111 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-md-7 p-2 flex-fill">
-                    <div class="">
+                <div class="col-lg-7 flex-fill align-self-stretch py-3">
+                    <div class="p-3 bg-body rounded align-self-stretch h-100 lh-lg-1">
                         Мы делаем полный спектр ремонтных работ, от электронной диагностики автомобиля до замены любой
-                        его
-                        запчасти.
-                        Вы всегда получаете гарантированно качественную работу от наших профессионалов, и всегда можете
-                        быть
-                        уверенными в надежной работе своего автомобиля. Вы получите полную гарантию на все виды
-                        работ.<br>
-                        В комплексных работах участвуют несколько специалистов, каждый из которых отвечает за свою часть
-                        работы.<br>
-                        Специалисты узкого профиля повышают работоспособность сервиса и качество выполнения работ.
-                        Обслуживание
-                        автомобиля организовано согласно требованиям заводов-изготовителей. Оборудование техцентра
-                        соответствует
-                        всем современным требованиям.
+                        его запчасти. Вы всегда получаете гарантированно качественную работу от наших профессионалов, и
+                        всегда можете быть уверенными в надежной работе своего автомобиля. Вы получите полную гарантию
+                        на все виды работ. В комплексных работах участвуют несколько специалистов, каждый из которых
+                        отвечает за свою часть работы. Специалисты узкого профиля повышают работоспособность сервиса и
+                        качество выполнения работ. Обслуживание автомобиля организовано согласно требованиям
+                        заводов-изготовителей. Оборудование техцентра соответствует всем современным требованиям.
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    {#    <div class="container">#}
-    {#        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">#}
-    {#            <div class="carousel-inner">#}
-    {#                {% for single_image in image %}#}
-    {#                    {% if forloop.first %}#}
-    {#                        <div class="carousel-item active">#}
-    {#                            <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">#}
-    {#                        </div>#}
-    {#                    {% else %}#}
-    {#                        <div class="carousel-item">#}
-    {#                            <img src="{{ single_image.image.url }}" class="d-block w-100" alt="...">#}
-    {#                        </div>#}
-    {#                    {% endif %}#}
-    {#                {% endfor %}#}
-    {#            </div>#}
-    {#            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"#}
-    {#                    data-bs-slide="prev">#}
-    {#                <span class="carousel-control-prev-icon" aria-hidden="true"></span>#}
-    {#                <span class="visually-hidden">Previous</span>#}
-    {#            </button>#}
-    {#            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"#}
-    {#                    data-bs-slide="next">#}
-    {#                <span class="carousel-control-next-icon" aria-hidden="true"></span>#}
-    {#                <span class="visually-hidden">Next</span>#}
-    {#            </button>#}
-    {#        </div>#}
-    {#    </div>#}
-
-
     {#Отзывы#}
-    <div>
-        <div class="container">
-            <div class=" pb-2 pt-5 mt-5 d-flex justify-content-center">
-                <h2>Отзывы клиентов о сервисе</h2>
-            </div>
-
-            <div class="py-2 pb-5 d-flex justify-content-center"
-                 data-record-type="255"
-                 data-bg-color="#f0f0f0" data-animationappear="off">
-                <div style="width:560px;height:600px;overflow:hidden;position:relative;">
-                    <iframe loading="lazy"
-                            style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
-                            src="https://yandex.ru/maps-reviews-widget/92974302436?comments"></iframe>
-                </div>
+    <div id="reviews" class="container pt-5">
+        <div class=" pb-2 pt-5 d-flex justify-content-center">
+            <h2>Отзывы клиентов о сервисе</h2>
+        </div>
+        <div class="py-2 pb-5 d-flex justify-content-center"
+             data-record-type="255"
+             data-bg-color="#f0f0f0" data-animationappear="off">
+            <div style="width:560px;height:600px;overflow:hidden;position:relative;">
+                <iframe loading="lazy"
+                        style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box"
+                        src="https://yandex.ru/maps-reviews-widget/92974302436?comments"></iframe>
             </div>
         </div>
     </div>
 
     {#Контакты#}
-<div style="background-color:#f0f0f0;">
-    <div id="contact" class="pt-5">
-        <ul class="list-inline text-center m-0 pt-5">
-            <li class="list-inline-item text-center text-sm-end"><h1>Наш телефон: </h1></li>
-            <li class="list-inline-item text-center text-sm-start">
-                <h1><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a></h1></li>
+    <div id="contact" style="background-color:#f0f0f0;">
+        <div class="pt-5">
+            <ul class="list-inline text-center m-0 pt-5">
+                <li class="list-inline-item text-center text-sm-end"><h1>Наш телефон: </h1></li>
+                <li class="list-inline-item text-center text-sm-start">
+                    <h1><a class="nav-link" href="tel:+79933135777">+7 (993) 313-57-77</a></h1></li>
+            </ul>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="d-inline-flex p-2">
+                <a class="nav-link" href="tel:+79933135777">
+                    <img src="{% static 'phone_logo_icon.svg' %}" alt="Позвонить" style="height:3rem;width:3rem;">
+                </a>
+            </div>
+            <div class="d-inline-flex p-2">
+                <a class="nav-link" href="https://wa.me/79933135777?text=Здраствуйте!">
+                    <img src="{% static 'whatsapp_logo_icon.svg' %}" alt="Написать" style="height:3rem;width:3rem;">
+                </a>
+            </div>
+            <div class="d-inline-flex p-2">
+                <a class="nav-link" href="https://t.me/Alfa_34_4_Service">
+                    <img src="{% static 'telegram_logo_icon.svg' %}" alt="Написать" style="height:3rem;width:3rem;">
+                </a>
+            </div>
+        </div>
+        <div class="p-5">
+            <div class="container" style="background-color:#ff0000;height:2px;width:40%;opacity:1;"></div>
+        </div>
+        <div class="text-center pb-5" style="">Сочи, жилой район Адлер, ул.Авиационная 34/4<br>Пн-Вс: 9:00–19:00</div>
+
+        {#Карта#}
+        <ul class="nav nav-tabs">
+            <li class=" nav-item">
+                <button id="yandex-show" class="nav-link text-dark active">Яндекс карта</button>
+            </li>
+            <li class="nav-item">
+                <button id="2gis-show" class="nav-link text-dark">2ГИС карта</button>
+            </li>
         </ul>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="d-inline-flex p-2">
-            <a class="nav-link" href="tel:+79933135777">
-                <img src="{% static 'phone_logo_icon.svg' %}" alt="Позвонить" style="height:3rem;width:3rem;">
-            </a>
+
+        {#Yandex#}
+        <div id="yandex" style="position:relative;overflow:hidden;height: 500px;">
+            <iframe loading="lazy"
+                    src="https://yandex.ru/map-widget/v1/?ll=39.938210%2C43.429562&mode=search&oid=92974302436&ol=biz&z=16.71"
+                    width="100%" height="500" frameborder="1" allowfullscreen="true"
+                    style="position:relative;"></iframe>
         </div>
-        <div class="d-inline-flex p-2">
-            <a class="nav-link" href="https://wa.me/79933135777?text=Здраствуйте!">
-                <img src="{% static 'whatsapp_logo_icon.svg' %}" alt="Написать" style="height:3rem;width:3rem;">
-            </a>
+
+        {#2gis#}
+        <div id="2gis" style="display:none;height:500px;">
+            <a class="dg-widget-link"
+               href="http://2gis.ru/sochi/firm/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
+                на карте Сочи</a>
+            <div class="dg-widget-link"><a
+                    href="http://2gis.ru/sochi/firm/70000001080557060/photos/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии
+                компании</a></div>
+            <div class="dg-widget-link"><a
+                    href="http://2gis.ru/sochi/center/39.936818,43.430476/zoom/17/routeTab/rsType/bus/to/39.936818,43.430476╎Альфа Сервис?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти
+                проезд до Альфа Сервис</a></div>
+            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+            <script charset="utf-8">new DGWidgetLoader({
+                "width": '100%',
+                "height": 500,
+                "borderColor": "#a3a3a3",
+                "pos": {"lat": 43.430678670507625, "lon": 39.93751287460328, "zoom": 17},
+                "opt": {"city": "sochi"},
+                "org": [{"id": "70000001080557060"}]
+            });</script>
+            <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите
+                его в
+                настройках вашего браузера.
+            </noscript>
         </div>
-        <div class="d-inline-flex p-2">
-            <a class="nav-link" href="https://t.me/Alfa_34_4_Service">
-                <img src="{% static 'telegram_logo_icon.svg' %}" alt="Написать" style="height:3rem;width:3rem;">
-            </a>
-        </div>
-    </div>
-<div class="p-5">
-<div class="container" style="background-color:#ff0000;height:2px;width:40%;opacity:1;"></div>
-</div>
-<div class="text-center pb-5" style="">Сочи, жилой район Адлер, ул.Авиационная 34/4<br>Пн-Вс: 9:00–19:00</div>
-
-    {#Карта#}
-    <ul class="nav nav-tabs">
-        <li class=" nav-item">
-            <button id="yandex-show" class="nav-link text-dark active">Яндекс карта</button>
-        </li>
-        <li class="nav-item">
-            <button id="2gis-show" class="nav-link text-dark">2ГИС карта</button>
-        </li>
-    </ul>
-
-
-    {#Yandex#}
-    <div id="yandex" style="position:relative;overflow:hidden;height: 500px;">
-        <iframe loading="lazy"
-                src="https://yandex.ru/map-widget/v1/?ll=39.938210%2C43.429562&mode=search&oid=92974302436&ol=biz&z=16.71"
-                width="100%" height="500" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
-    </div>
-
-    {#2gis#}
-    <div id="2gis" style="display:none;height:500px;">
-        <a class="dg-widget-link"
-           href="http://2gis.ru/sochi/firm/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
-            на карте Сочи</a>
-        <div class="dg-widget-link"><a
-                href="http://2gis.ru/sochi/firm/70000001080557060/photos/70000001080557060/center/39.93751287460328,43.430678670507625/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии
-            компании</a></div>
-        <div class="dg-widget-link"><a
-                href="http://2gis.ru/sochi/center/39.936818,43.430476/zoom/17/routeTab/rsType/bus/to/39.936818,43.430476╎Альфа Сервис?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти
-            проезд до Альфа Сервис</a></div>
-        <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
-        <script charset="utf-8">new DGWidgetLoader({
-            "width": '100%',
-            "height": 500,
-            "borderColor": "#a3a3a3",
-            "pos": {"lat": 43.430678670507625, "lon": 39.93751287460328, "zoom": 17},
-            "opt": {"city": "sochi"},
-            "org": [{"id": "70000001080557060"}]
-        });</script>
-        <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в
-            настройках вашего браузера.
-        </noscript>
-    </div>
     </div>
 </main>
 
@@ -347,6 +395,11 @@
             $("#yandex-show").removeClass("active");
             $("#2gis-show").addClass("active");
         });
+    });
+</script>
+<script>
+    $("#offcanvasDarkNavbar a").click(function () {
+        $('.offcanvas').offcanvas('hide');
     });
 </script>
 </body>
