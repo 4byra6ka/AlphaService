@@ -161,6 +161,25 @@
                                 {{ category.name }}
                             </button>
                         </h2>
+
+
+                        {% for service in category.service_set.all %}
+
+                            <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3"
+                                 data-bs-parent="#accordionExample">
+                                <h4 class="d-md-none">{{ service.name }}</h4>
+                                <img src="{{ service.picture.url }}"
+                                     class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3"
+                                     alt="...">
+                                <h4 class="d-none d-md-block">{{ service.name }}</h4>
+                                <p>{{ service.description }}</p>
+                                <h4>Цена: {{ service.price }}руб.</h4>
+
+                            </div>
+
+                        {% endfor %}
+
+
                         <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
                              data-bs-parent="#accordionExample">
 
@@ -184,18 +203,24 @@
 
                         </div>
 
-                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3" data-bs-parent="#accordionExample">
-                            <h4 class="d-md-none">Установка мультимедиа на авто</h4>
-                            <img src="{% static 'multimedia.jpg' %}" class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3" alt="...">
-                            <h4 class="d-none d-md-block">Установка мультимедиа на авто</h4>
-
-
-                            <p>
-                                Установка мультимедиа под ваш автомобиль, подключение дополнительных опции: управление с руля, технические данные автомобиля, датчики колёс, подключение штатного ГЛОНАСС, камер заднего и переднего вида, дополнительный усилитель и активный сабвуфер, так же есть возможность подключить и установить круговой обзор. Качественно установим и проведем все необходимые работы
-                            </p>
-                            <h4>Цена: 5000руб.</h4>
-
-                        </div>
+                        {#                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3"#}
+                        {#                             data-bs-parent="#accordionExample">#}
+                        {#                            <h4 class="d-md-none">Установка мультимедиа на авто</h4>#}
+                        {#                            <img src="{% static 'multimedia.jpg' %}"#}
+                        {#                                 class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3" alt="...">#}
+                        {#                            <h4 class="d-none d-md-block">Установка мультимедиа на авто</h4>#}
+                        {##}
+                        {##}
+                        {#                            <p>#}
+                        {#                                Установка мультимедиа под ваш автомобиль, подключение дополнительных опции: управление с#}
+                        {#                                руля, технические данные автомобиля, датчики колёс, подключение штатного ГЛОНАСС, камер#}
+                        {#                                заднего и переднего вида, дополнительный усилитель и активный сабвуфер, так же есть#}
+                        {#                                возможность подключить и установить круговой обзор. Качественно установим и проведем все#}
+                        {#                                необходимые работы#}
+                        {#                            </p>#}
+                        {#                            <h4>Цена: 5000руб.</h4>#}
+                        {##}
+                        {#                        </div>#}
 
                         <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
                              data-bs-parent="#accordionExample">

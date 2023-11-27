@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
+    'rest_framework',
+    'rest_framework_xml',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = 'users.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework_xml.parsers.XMLParser',
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework_xml.renderers.XMLRenderer',
+    ],
+}

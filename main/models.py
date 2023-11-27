@@ -21,7 +21,7 @@ class Category(models.Model):
     archived = models.BooleanField(verbose_name='Архив', default=False)
 
     def __str__(self):
-        return self.name
+        return f"{self.pk}: {self.name}"
 
     class Meta:
         verbose_name = 'Категория'
@@ -32,13 +32,14 @@ class Service(models.Model):
     name = models.CharField(max_length=255, verbose_name='Имя услуги')
     price = models.PositiveIntegerField(verbose_name="Цена")
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, verbose_name='Категория', **NULLABLE)
+    # category = models.ManyToManyField(Category, verbose_name='Категория')
     picture = models.ImageField(upload_to='service_image/', verbose_name='Изображение')
     description = models.TextField(verbose_name='Описание')
     archived = models.BooleanField(verbose_name='Архив', default=False)
     currencyId = models.CharField(max_length=10, verbose_name='Валюта', default='RUR')
 
     def __str__(self):
-        return self.name
+        return f"{self.pk}: {self.name}"
 
     class Meta:
         verbose_name = 'Услуга'
