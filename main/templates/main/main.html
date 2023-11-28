@@ -153,96 +153,118 @@
         <div class="my-3 my-md-4">
             <div class="accordion" id="accordionExample">
                 {% for category in categories %}
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse{{ category.pk }}"
-                                    aria-expanded="false" aria-controls="collapse{{ category.pk }}">
-                                {{ category.name }}
-                            </button>
-                        </h2>
+                    {% if category.service_set.all %}
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse{{ category.pk }}"
+                                        aria-expanded="false" aria-controls="collapse{{ category.pk }}">
+                                    {{ category.name }}
+                                </button>
+                            </h2>
 
 
-                        {% for service in category.service_set.all %}
-
-                            <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3"
-                                 data-bs-parent="#accordionExample">
-                                <h4 class="d-md-none">{{ service.name }}</h4>
-                                <img src="{{ service.picture.url }}"
-                                     class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3"
-                                     alt="...">
-                                <h4 class="d-none d-md-block">{{ service.name }}</h4>
-                                <p>{{ service.description }}</p>
-                                <h4>Цена: {{ service.price }}руб.</h4>
-
-                            </div>
-
-                        {% endfor %}
-
-
-                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
-                             data-bs-parent="#accordionExample">
-
-                            <div class="border-bottom">
-                                <div class="row g-0 m-3">
-                                    <div class="col-md-4">
-                                        <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">
+                            {% for service in category.service_set.all %}
+                                {% if forloop.last %}
+                                    <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3"
+                                         data-bs-parent="#accordionExample">
+                                        <h4 class="d-md-none">{{ service.name }}</h4>
+                                        <img src="{{ service.picture.url }}"
+                                             class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3"
+                                             alt="...">
+                                        <h4 class="d-none d-md-block">{{ service.name }}</h4>
+                                        <p>{{ service.description }}</p>
+                                        <h4>Цена: {{ service.price }}руб.</h4>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural
-                                                lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                                ago</small></p>
+                                {% else %}
+                                    <div class="border-bottom">
+                                        <div id="collapse{{ category.pk }}"
+                                             class="accordion-collapse collapse clearfix m-3"
+                                             data-bs-parent="#accordionExample">
+
+                                            <h4 class="d-md-none">{{ service.name }}</h4>
+                                            <img src="{{ service.picture.url }}"
+                                                 class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3"
+                                                 alt="...">
+                                            <h4 class="d-none d-md-block">{{ service.name }}</h4>
+                                            <p>{{ service.description }}</p>
+                                            <h4>Цена: {{ service.price }}руб.</h4>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                {% endif %}
+
+
+
+                            {% endfor %}
+
+
+                            {#                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"#}
+                            {#                             data-bs-parent="#accordionExample">#}
+                            {##}
+                            {#                            <div class="border-bottom">#}
+                            {#                                <div class="row g-0 m-3">#}
+                            {#                                    <div class="col-md-4">#}
+                            {#                                        <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">#}
+                            {#                                    </div>#}
+                            {#                                    <div class="col-md-8">#}
+                            {#                                        <div class="card-body">#}
+                            {#                                            <h5 class="card-title">Card title</h5>#}
+                            {#                                            <p class="card-text">This is a wider card with supporting text below as a#}
+                            {#                                                natural#}
+                            {#                                                lead-in to additional content. This content is a little bit longer.</p>#}
+                            {#                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins#}
+                            {#                                                ago</small></p>#}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {##}
+                            {#                        </div>#}
+
+                            {#                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3"#}
+                            {#                             data-bs-parent="#accordionExample">#}
+                            {#                            <h4 class="d-md-none">Установка мультимедиа на авто</h4>#}
+                            {#                            <img src="{% static 'multimedia.jpg' %}"#}
+                            {#                                 class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3" alt="...">#}
+                            {#                            <h4 class="d-none d-md-block">Установка мультимедиа на авто</h4>#}
+                            {##}
+                            {##}
+                            {#                            <p>#}
+                            {#                                Установка мультимедиа под ваш автомобиль, подключение дополнительных опции: управление с#}
+                            {#                                руля, технические данные автомобиля, датчики колёс, подключение штатного ГЛОНАСС, камер#}
+                            {#                                заднего и переднего вида, дополнительный усилитель и активный сабвуфер, так же есть#}
+                            {#                                возможность подключить и установить круговой обзор. Качественно установим и проведем все#}
+                            {#                                необходимые работы#}
+                            {#                            </p>#}
+                            {#                            <h4>Цена: 5000руб.</h4>#}
+                            {##}
+                            {#                        </div>#}
+
+                            {#                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"#}
+                            {#                             data-bs-parent="#accordionExample">#}
+                            {##}
+                            {##}
+                            {#                            <div class="row g-0 m-3">#}
+                            {#                                <div class="col-md-4">#}
+                            {#                                    <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">#}
+                            {#                                </div>#}
+                            {#                                <div class="col-md-8">#}
+                            {#                                    <div class="card-body">#}
+                            {#                                        <h5 class="card-title">Card title</h5>#}
+                            {#                                        <p class="card-text">This is a wider card with supporting text below as a#}
+                            {#                                            natural#}
+                            {#                                            lead-in to additional content. This content is a little bit longer.</p>#}
+                            {#                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins#}
+                            {#                                            ago</small></p>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </div>#}
+
 
                         </div>
-
-                        {#                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse clearfix m-3"#}
-                        {#                             data-bs-parent="#accordionExample">#}
-                        {#                            <h4 class="d-md-none">Установка мультимедиа на авто</h4>#}
-                        {#                            <img src="{% static 'multimedia.jpg' %}"#}
-                        {#                                 class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3 float-start pe-3" alt="...">#}
-                        {#                            <h4 class="d-none d-md-block">Установка мультимедиа на авто</h4>#}
-                        {##}
-                        {##}
-                        {#                            <p>#}
-                        {#                                Установка мультимедиа под ваш автомобиль, подключение дополнительных опции: управление с#}
-                        {#                                руля, технические данные автомобиля, датчики колёс, подключение штатного ГЛОНАСС, камер#}
-                        {#                                заднего и переднего вида, дополнительный усилитель и активный сабвуфер, так же есть#}
-                        {#                                возможность подключить и установить круговой обзор. Качественно установим и проведем все#}
-                        {#                                необходимые работы#}
-                        {#                            </p>#}
-                        {#                            <h4>Цена: 5000руб.</h4>#}
-                        {##}
-                        {#                        </div>#}
-
-                        <div id="collapse{{ category.pk }}" class="accordion-collapse collapse"
-                             data-bs-parent="#accordionExample">
-
-
-                            <div class="row g-0 m-3">
-                                <div class="col-md-4">
-                                    <img src="{% static 'logo.png' %}" class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a
-                                            natural
-                                            lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                            ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

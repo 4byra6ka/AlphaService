@@ -24,6 +24,7 @@ class MainView(TemplateView):
         context = super().get_context_data(*args, **kwargs)
         context['image'] = MainImage.objects.all
         context['categories'] = Category.objects.filter(archived=False)
+
         return context
 
 
