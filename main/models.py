@@ -45,7 +45,7 @@ class Service(models.Model):
         return f"{self.pk}: {self.name}"
 
     def delete(self, *args, **kwargs):
-        self.image.delete()
+        self.picture.delete()
         super(Service, self).delete(*args, **kwargs)
 
     class Meta:
